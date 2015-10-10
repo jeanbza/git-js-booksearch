@@ -7,5 +7,8 @@
         "karma-browserify": "~3.0.2",
         "karma-jasmine": "~0.3.5",
         "karma-jasmine-html-reporter": "> 0.0"
+    },
+    "scripts": {
+      "test": "./node_modules/.bin/karma start --single-run --browsers Firefox"
     }
 }
