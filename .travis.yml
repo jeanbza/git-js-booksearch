@@ -22,7 +22,8 @@ addons:
     - g++-4.8
     - clang
 deploy:
-  edge: true
+  on:
+    branch: master
   provider:
     provider: cloudfoundry
   api: https://api.run.pivotal.io
