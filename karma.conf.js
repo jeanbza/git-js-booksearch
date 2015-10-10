@@ -17,6 +17,9 @@ module.exports = function(config) {
     },
     reporters: [
       'dots', 'html'
-    ]
+    ],
+    'scripts': {
+      'test': './node_modules/.bin/karma start --single-run --browsers Firefox'
+    }
   });
 };
