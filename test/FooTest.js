@@ -13,6 +13,6 @@ describe('ES6 Foo', function () {
     });
 
     it('should not work', ()=>{
-        expect(foo.doSomethingElse()).toEqual('bar');
+        expect(foo.doSomethingElse()).toEqual('foo');
     });
 });
