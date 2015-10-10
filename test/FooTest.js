@@ -1,4 +1,4 @@
-import Foo from '../src/foo.js';
+import Foo from '../src/Foo.js';
 
 describe('ES6 Foo', function () {
 
