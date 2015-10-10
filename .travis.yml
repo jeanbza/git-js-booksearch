@@ -1,23 +1,32 @@
 language: node_js
 node_js:
-  - 4.1.2
+- 4.1.2
 before_script:
-  - gcc -v
-  - npm install
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- gcc -v
+- npm install
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 compiler:
-  - gcc
-  - clang
+- gcc
+- clang
 sudo: false
 install:
-  - export CXX="g++-4.8" CC="gcc-4.8"
+- export CXX="g++-4.8" CC="gcc-4.8"
 addons:
-  firefox: "39.0"
+  firefox: '39.0'
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - gcc-4.8
-      - g++-4.8
-      - clang
+    - gcc-4.8
+    - g++-4.8
+    - clang
+deploy:
+  provider:
+    provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: jdeklerk@pivotal.io
+  password:
+    secure: dulu8OMX98k+jUqnhLK9m6wBVludlCVgNVgAFWkG/ytrJCTJba2yKheDgowr6NnjOpzF+WNeMr/rqMNEwmKSBE0byuwRGFzVHQ5Xyi+wBGYbsqfMMDNn1huNyMFrKm0EGneXi7MBqcED3PcmjGknjIxGwKUSqeqgNmOS31Gc8n2mznNhQhhV3xrdiCuP6A/zFyaj3NiLrgdjQjH47fQ9X8v4pFkubGKD+5QX9s+AgcRBQndsGyjjKUrQikFTzwJWBK8EL0ZXgh6awVLovpTejKXTUEGqV27Jzojg6i2sE80+ftJN/dE30TfMb+Lyp+DOzMA2MTqdVSHqofzdziABrr6SqNgNhJsZ/PACCNNMUZHIIUVK/lhnvcNBNZwnx2XnjuPz9tpUPTihWrLLIVHzQ+T/eVZBdRKlP713/1gGc5o0GHMBVC/K0Zy7tYqFYEmlNXWHyK67xOJhH7awX3oLAvITXHHVfCojBOK1eh23TSibDnwTOkCJov4HJzNTtxJfBmazvKaSTbarzMmGPLEIaNTRkxPumiBuOJRe15ZDbThkwQ8LTtn5DEYCgNAjGV1rAu8JLN7OKamm1sNWF4pg0a5EdkulTtZJTCmzKDvZLXPLhD6BKw5xT2aW6ZnbbhOHRDclxHoyJCHKQ/u3nY5lSNPj4K8mEZmi4e8YQKa2W78=
+  organization: denver-labs
+  space: development
