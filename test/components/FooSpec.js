@@ -3,7 +3,7 @@ import React from 'react/addons'
 
 const TestUtils = React.addons.TestUtils
 
-fdescribe('Foo', () => {
+fdescribe('Foo component', () => {
   it('renders with hello world', () => {
     var fooComponent = TestUtils.renderIntoDocument( < Foo / > )
     expect(React.findDOMNode(fooComponent).textContent).toEqual('Hello World')
