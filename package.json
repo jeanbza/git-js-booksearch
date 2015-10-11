@@ -29,6 +29,6 @@
     "yargs": "^3.25.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/karma start --single-run --browsers Firefox --base-path src/js"
+    "test": "./node_modules/.bin/karma start --single-run --browsers Firefox"
   }
 }
