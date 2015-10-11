@@ -12,20 +12,15 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
 var paths = {
-  application_scripts: ['src/**/*.js'],
-  images: 'img/**/*'
+  application_scripts: ['src/**/*.js']
 };
-
-gulp.task('images', ['clean:images'], function() {
-  return gulp.src(paths.images)
-    .pipe(gulp.dest('dist/img'));
-});
 
 /* JavaScript */
 gulp.task('browserify:js', ['clean:js'], function() {
   var extensions = ['.js', '.json', '.es6', '.jsx'];
   return browserify({
       debug: true,
+      fullPaths: true,
       extensions: extensions
     })
     .transform(babelify.configure({
@@ -37,7 +32,7 @@ gulp.task('browserify:js', ['clean:js'], function() {
     .bundle()
     .pipe(source('app.min.js'))
     .pipe(buffer())
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 });
 
