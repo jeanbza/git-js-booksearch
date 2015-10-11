@@ -55,10 +55,6 @@ gulp.task('clean:css', function() {
   return del(['dist/css/*', 'dist/css']);
 });
 
-gulp.task('clean:images', function() {
-  return del(['dist/img/*', 'dist/img']);
-});
+gulp.task('clean', ['clean:js', 'clean:css']);
 
-gulp.task('clean', ['clean:js', 'clean:css', 'clean:images']);
-
-gulp.task('default', ['clean', 'images', 'browserify:js', 'scss']);
+gulp.task('default', ['clean', 'browserify:js', 'scss']);
