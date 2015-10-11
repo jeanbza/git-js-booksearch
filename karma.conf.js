@@ -12,10 +12,12 @@ module.exports = function(config) {
     },
     browserify: {
       debug: true,
-      transform: ['babelify']
+      transform: ['babelify'],
+      extensions: ['.js', '.jsx']
     },
     reporters: [
       'dots', 'html'
-    ]
+    ],
+    browsers: ['Firefox']
   });
 };

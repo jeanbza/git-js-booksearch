@@ -1,9 +1,9 @@
-import Foo from '../../src/components/Foo.jsx'
+import Foo from '../../src/components/Foo'
 import React from 'react/addons'
 
 const TestUtils = React.addons.TestUtils
 
-fdescribe('Foo component', () => {
+describe('Foo component', () => {
   it('renders with hello world', () => {
     var fooComponent = TestUtils.renderIntoDocument( < Foo / > )
     expect(React.findDOMNode(fooComponent).textContent).toEqual('Hello World')
