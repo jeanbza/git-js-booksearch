@@ -5,12 +5,21 @@ Simple book searcher using React.js, Redux, Karma, and the google book API.
 
 ## Installation
 
-To be written
+Requires node v4.1.2+ and npm v2.14.4+.
+
+1. `npm install`
+1. `gulp`
 
 ## Running
 
-To be written
+1. `open index.html`
 
-## API
+## Testing
 
-https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699
+Requires Firefox 39+.
+
+1. `npm test` or `karma start`
+
+## Additional notes
+
+Based on the google books api: https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699
