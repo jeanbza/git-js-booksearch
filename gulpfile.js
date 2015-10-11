@@ -23,7 +23,7 @@ gulp.task('images', ['clean:images'], function() {
 
 /* JavaScript */
 gulp.task('browserify:js', ['clean:js'], function() {
-  var extensions = ['.js', '.json', '.es6'];
+  var extensions = ['.js', '.json', '.es6', '.jsx'];
   return browserify({
       debug: true,
       extensions: extensions
@@ -37,7 +37,7 @@ gulp.task('browserify:js', ['clean:js'], function() {
     .bundle()
     .pipe(source('app.min.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 });
 
