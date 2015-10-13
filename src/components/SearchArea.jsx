@@ -1,15 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import Counter from './Counter'
+import SearchBar from './SearchBar';
 
 export default class SearchArea extends Component {
   render() {
     return (
-      <div>
-        This is the search area
-        <Counter counter={this.props.counter}
-          increment={this.props.increment}
-          decrement={this.props.decrement} />
-      </div>
+      <SearchBar />
     );
   }
 }
