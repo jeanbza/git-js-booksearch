@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import configureStore from './store/configureStore';
-import Counter from './components/Counter'
+import SearchArea from './components/SearchArea'
 import * as CounterActions from './actions/counter'
 
 const store = configureStore();
@@ -19,11 +19,11 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(CounterActions, dispatch)
 }
 
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(Counter);
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(SearchArea);
 
 React.render(
   <Provider store={store}>
-  {() => <ConnectedApp />}
+    {() => <ConnectedApp />}
   </Provider>,
   document.getElementById('root')
 );
