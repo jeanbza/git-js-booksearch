@@ -3,8 +3,9 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
+var less = require('gulp-less');
 var del = require('del');
+var path = require('path');
 
 var browserify = require('browserify');
 var babelify = require('babelify');
@@ -30,20 +31,18 @@ gulp.task('browserify:js', ['clean:js'], function() {
       entry: true
     })
     .bundle()
-    .pipe(source('app.min.js'))
-    .pipe(buffer())
-    .pipe(uglify())
+    .pipe(source('./app.js'))
     .pipe(gulp.dest('dist/js'));
 });
 
 /* Styles */
-gulp.task('scss', ['clean:css'], function() {
-  gulp.src('scss/**/*.scss')
-    .pipe(sass().on('error', function(err) {
-      console.error(err);
-    }))
-    .pipe(concat('app.css'))
-    .pipe(gulp.dest('dist/css/'));
+gulp.task('less', ['clean:css'], function() {
+    return gulp.src('./less/**/*.less')
+      .pipe(less({
+        paths: [ path.join(__dirname, 'node_modules', 'semantic-ui-less') ]
+      }))
+      .pipe(concat('app.css'))
+      .pipe(gulp.dest('dist/css'));
 });
 
 /* Clean up */
@@ -57,4 +56,4 @@ gulp.task('clean:css', function() {
 
 gulp.task('clean', ['clean:js', 'clean:css']);
 
-gulp.task('default', ['clean', 'browserify:js', 'scss']);
+gulp.task('default', ['clean', 'browserify:js', 'less']);

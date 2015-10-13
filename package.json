@@ -3,7 +3,8 @@
     "react": "^0.13.3",
     "react-redux": "^2.1.2",
     "redux": "^3.0.0",
-    "redux-thunk": "^0.1.0"
+    "redux-thunk": "^0.1.0",
+    "semantic-ui-less": "~2.1.4"
   },
   "devDependencies": {
     "browserify": "^11.0.1",
@@ -14,7 +15,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.0.4",
+    "gulp-less": "^3.0.3",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.4.1",
     "jasmine": "^2.3.2",
