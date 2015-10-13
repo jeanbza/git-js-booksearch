@@ -1,6 +1,6 @@
 import { applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import * as actions from '../../src/actions/counter'
+import * as actions from '../src/actions'
 
 const middlewares = [thunk];
 

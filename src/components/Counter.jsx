@@ -9,7 +9,7 @@ export default class Counter extends Component {
         <button onClick={increment}>+</button>
         <button onClick={decrement}>-</button>
       </p>
-    );
+    )
   }
 }
 
@@ -17,4 +17,4 @@ Counter.propTypes = {
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
   counter: PropTypes.number.isRequired
-};
+}
