@@ -2,20 +2,23 @@ export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
 export const SEARCH = 'SEARCH'
 
-export function search() {
+export function search(searchBarEvent) {
+  const searchBarData = searchBarEvent.target.value
+
   return {
-    type: SEARCH
+    type: SEARCH,
+    searchBarData: searchBarData
   }
 }
 
 export function increment() {
   return {
     type: INCREMENT_COUNTER
-  };
+  }
 }
 
 export function decrement() {
   return {
     type: DECREMENT_COUNTER
-  };
+  }
 }

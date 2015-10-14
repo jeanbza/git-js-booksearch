@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import ReactDOM from 'react-dom'
 
 import configureStore from './configureStore'
 import SearchArea from './components/SearchArea'
@@ -21,9 +22,9 @@ function mapDispatchToProps(dispatch) {
 
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(SearchArea)
 
-React.render(
+ReactDOM.render(
   <Provider store={store}>
-    {() => <ConnectedApp />}
+    <ConnectedApp />
   </Provider>,
   document.getElementById('root')
 )

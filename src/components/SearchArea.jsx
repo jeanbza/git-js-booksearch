@@ -9,7 +9,8 @@ export default class SearchArea extends Component {
         <Counter increment={this.props.increment}
           decrement={this.props.decrement}
           counter={this.props.counter} />
-        <SearchBar />
+
+        <SearchBar search={this.props.search} />
       </div>
     )
   }
@@ -18,5 +19,6 @@ export default class SearchArea extends Component {
 SearchArea.propTypes = {
   increment: PropTypes.func.isRequired,
   decrement: PropTypes.func.isRequired,
-  counter: PropTypes.number.isRequired
+  counter: PropTypes.number.isRequired,
+  search: PropTypes.func.isRequired
 }
