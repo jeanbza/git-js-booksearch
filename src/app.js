@@ -6,18 +6,19 @@ import ReactDOM from 'react-dom'
 
 import configureStore from './configureStore'
 import SearchArea from './components/SearchArea'
-import * as CounterActions from './actions'
+import * as AllActions from './actions'
 
 const store = configureStore()
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    counter: state.counter,
+    searchResults: Array.isArray(state.search) ? state.search : []
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch)
+  return bindActionCreators(AllActions, dispatch)
 }
 
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(SearchArea)

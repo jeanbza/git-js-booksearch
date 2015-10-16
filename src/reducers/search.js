@@ -3,15 +3,30 @@ import { SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED } from '../actions'
 export default function search(state = {}, action) {
   switch (action.type) {
   case SEARCH_STARTED:
-    console.log("search started!")
     return state
-  case SEARCH_SUCCEEDED:
-    console.log(action.searchResult)
+  default:
+    return state
+  }
+}
 
-    console.log("search finished!")
-    return state
+export default function searchResults(state = {}, action) {
+  switch (action.type) {
+  case SEARCH_SUCCEEDED:
+    console.log("search succeeded")
+
+    const books = action.searchResult.items.map(function(item) {
+      return {
+        title: item.volumeInfo.title,
+        subtitle: item.volumeInfo.subtitle,
+        description: item.volumeInfo.description,
+        buyLink: item.saleInfo.buyLink
+      }
+    })
+
+    // state.results = books
+    return books
   case SEARCH_FAILED:
-    console.log("search failed!")
+    console.log("search failed")
     return state
   default:
     return state

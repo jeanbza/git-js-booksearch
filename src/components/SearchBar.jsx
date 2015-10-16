@@ -2,9 +2,6 @@ import React, { Component, PropTypes } from 'react'
 
 export default class SearchBar extends Component {
   render() {
-    console.log("BOOM")
-    console.log(this.props)
-
     return (
       <form className="ui form">
         <div className="field">
