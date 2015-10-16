@@ -2,10 +2,17 @@ import React, { Component, PropTypes } from 'react'
 
 export default class SearchResultsArea extends Component {
   render() {
-    console.log("SEARCH RESULTS AREA RENDERED", this.props)
+    const books = this.props.searchResults.map(function(result, index) {
+      return (
+        <div key={index}>
+          <h2>{result.title}</h2>
+          <div>{result.subtitle}</div>
+        </div>
+      )
+    })
 
     return (
-      <div>hello world</div>
+      <div>{books}</div>
     );
   }
 }

@@ -12,8 +12,6 @@ export default function search(state = {}, action) {
 export default function searchResults(state = {}, action) {
   switch (action.type) {
   case SEARCH_SUCCEEDED:
-    console.log("search succeeded")
-
     const books = action.searchResult.items.map(function(item) {
       return {
         title: item.volumeInfo.title,
@@ -23,10 +21,9 @@ export default function searchResults(state = {}, action) {
       }
     })
 
-    // state.results = books
     return books
   case SEARCH_FAILED:
-    console.log("search failed")
+    console.error("search failed")
     return state
   default:
     return state
