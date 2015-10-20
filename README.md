@@ -3,15 +3,12 @@ Simple book searcher using React.js, Redux, Karma, and the google book API.
 
 [![Build Status](https://travis-ci.org/jadekler/git-js-booksearch.svg?branch=master)](https://travis-ci.org/jadekler/git-js-booksearch)
 
-## Installation
+## Installation and running
 
 Requires node v4.1.2+ and npm v2.14.4+.
 
 1. `npm install`
 1. `gulp`
-
-## Running
-
 1. `open index.html`
 
 ## Testing
