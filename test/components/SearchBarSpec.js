@@ -16,7 +16,7 @@ function setup() {
 }
 
 describe('SearchBar component', () => {
-  it('calls search on text input', () => {
+  it('triggers the search action on text input', () => {
     const { input, actions } = setup()
     TestUtils.Simulate.change(input)
     expect(actions.search).toHaveBeenCalled()
