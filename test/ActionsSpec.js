@@ -6,43 +6,54 @@ const middlewares = [thunk];
 
 function mockStore(getState, expectedActions, onLastAction) {
   if (!Array.isArray(expectedActions)) {
-    throw new Error('expectedActions should be an array of expected actions.');
+    throw new Error('expectedActions should be an array of expected actions.')
   }
 
   if (typeof onLastAction !== 'undefined' && typeof onLastAction !== 'function') {
-    throw new Error('onLastAction should either be undefined or function.');
+    throw new Error('onLastAction should either be undefined or function.')
   }
 
   function mockStoreWithoutMiddleware() {
     return {
       getState() {
-        return typeof getState === 'function' ? getState() : getState;
+        return typeof getState === 'function' ? getState() : getState
       },
 
       dispatch(action) {
-        const expectedAction = expectedActions.shift();
+        const expectedAction = expectedActions.shift()
         expect(action).toEqual(expectedAction);
 
         if (onLastAction && !expectedActions.length) {
-          onLastAction();
+          onLastAction()
         }
 
-        return action;
+        return action
       }
-    };
+    }
   }
 
-  const mockStoreWithMiddleware = applyMiddleware(...middlewares)(mockStoreWithoutMiddleware);
+  const mockStoreWithMiddleware = applyMiddleware(...middlewares)(mockStoreWithoutMiddleware)
 
-  return mockStoreWithMiddleware();
+  return mockStoreWithMiddleware()
 }
 
 describe('actions', () => {
-  it('increment should create increment action', () => {
-    expect(actions.increment()).toEqual({ type: actions.INCREMENT_COUNTER });
-  });
+  describe('search', () => {
+    const fakeSearchBarEvent = {
+      target: {
+        value: "foo"
+      }
+    }
 
-  it('decrement should create decrement action', () => {
-    expect(actions.decrement()).toEqual({ type: actions.DECREMENT_COUNTER });
-  });
-});
+    const searchResultCallback = actions.search(fakeSearchBarEvent)
+
+    console.dir("BOOM")
+    console.dir(searchResultCallback)
+    console.dir("BAM")
+
+    // expect(actions.search(fakeSearchBarEvent)).toEqual({
+    //   type: SEARCH_STARTED,
+    //   searchBarData: "foo"
+    // })
+  })
+})
