@@ -1,5 +1,3 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
 export const SEARCH_STARTED = 'SEARCH_STARTED'
 export const SEARCH_SUCCEEDED = 'SEARCH_SUCCEEDED'
 export const SEARCH_FAILED = 'SEARCH_FAILED'
@@ -37,17 +35,5 @@ export function search(searchBarEvent) {
       (result) => dispatch({ type: SEARCH_SUCCEEDED, searchResult: result }),
       (error) =>  dispatch({ type: SEARCH_FAILED, searchError: error })
     )
-  }
-}
-
-export function increment() {
-  return {
-    type: INCREMENT_COUNTER
-  }
-}
-
-export function decrement() {
-  return {
-    type: DECREMENT_COUNTER
   }
 }

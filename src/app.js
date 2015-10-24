@@ -12,7 +12,6 @@ const store = configureStore()
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter,
     searchResults: Array.isArray(state.search) ? state.search : []
   }
 }
