@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import SearchBar from './SearchBar'
 import SearchResultsArea from './SearchResultsArea'
-import Counter from './Counter'
 
 export default class SearchArea extends Component {
   render() {
