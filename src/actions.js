@@ -2,6 +2,8 @@ export const SEARCH_STARTED = 'SEARCH_STARTED'
 export const SEARCH_SUCCEEDED = 'SEARCH_SUCCEEDED'
 export const SEARCH_FAILED = 'SEARCH_FAILED'
 
+import 'whatwg-fetch'
+
 export function search(searchBarEvent) {
   const searchBarData = searchBarEvent.target.value
 
@@ -11,29 +13,16 @@ export function search(searchBarEvent) {
       searchBarData: searchBarData
     })
 
-    return new Promise(function(resolve, reject) {
-      // TODO: the following can probably be a function
-
-      let req = new XMLHttpRequest()
-      req.open("GET", "https://www.googleapis.com/books/v1/volumes?q=" + searchBarData)
-      req.onload = function() {
-        if (req.status === 200) {
-          resolve(req.response)
-        } else {
-          reject(new Error(req.statusText))
-        }
-      }
-
-      req.onerror = function() {
-        reject(new Error("Network error"))
-      }
-
-      req.send()
-    })
-    .then(JSON.parse)
-    .then(
-      (result) => dispatch({ type: SEARCH_SUCCEEDED, searchResult: result }),
-      (error) =>  dispatch({ type: SEARCH_FAILED, searchError: error })
-    )
+    return fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchBarData)
+      .then(function(response) {
+        console.log('response success', response)
+        return response.json()
+      }).then(function(json) {
+        dispatch({type: SEARCH_SUCCEEDED, searchResult: json})
+        console.log('parsing success')
+      }).catch(function(ex) {
+        dispatch({type: SEARCH_FAILED, searchError: ex})
+        console.log('parsing failed', ex)
+      })
   }
 }
