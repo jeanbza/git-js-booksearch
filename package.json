@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "gulp-watch": "^4.3.5",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^3.1.0",
@@ -13,10 +14,7 @@
     "babelify": "~5.0.3",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
-    "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.6.0",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-replace": "^0.5.4",
     "gulp-less": "^3.0.3",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.4.1",
@@ -28,7 +26,6 @@
     "karma-browserify": "^4.3.0",
     "karma-jasmine": "~0.3.6",
     "karma-jasmine-html-reporter": "~0.1.8",
-    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.25.0"
   },

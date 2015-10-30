@@ -5,8 +5,7 @@ export default class SearchBar extends Component {
     return (
       <form className="ui form">
         <div className="field">
-          <input type="text" name="search-bar" placeholder="Harry Potter"
-            onChange={this.props.search} />
+          <input type="text" name="search-bar" placeholder="Harry Potter" onChange={this.props.search} />
         </div>
       </form>
     );

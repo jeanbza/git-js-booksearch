@@ -16,7 +16,7 @@ export default function search(state = {}, action) {
 
     return books
   case SEARCH_FAILED:
-    console.error("search failed")
+    console.error('search failed')
     return state
   default:
     return state

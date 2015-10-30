@@ -8,7 +8,7 @@ describe('reducers', () => {
     })
 
     it('should handle SEARCH_STARTED', () => {
-      expect(search({}, { type: SEARCH_STARTED })).toEqual({});
+      expect(search({}, {type: SEARCH_STARTED})).toEqual({});
     })
 
     it('should handle SEARCH_SUCCEEDED', () => {
@@ -25,7 +25,7 @@ describe('reducers', () => {
     })
 
     it('should handle SEARCH_FAILED', () => {
-      expect(search({}, { type: SEARCH_FAILED })).toEqual({})
+      expect(search({}, {type: SEARCH_FAILED})).toEqual({})
     })
   })
 })

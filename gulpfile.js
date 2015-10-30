@@ -1,23 +1,25 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
+var watch = require('gulp-watch');
 var del = require('del');
-var path = require('path');
+var path = require('path'); // TODO: Replace with simple path
 
 var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
 
 var paths = {
   application_scripts: ['src/**/*.js']
 };
 
-/* JavaScript */
-gulp.task('browserify:js', ['clean:js'], function() {
+gulp.task('watch', [], function() {
+  gulp.watch(['./src/*.js', './src/**/*.js'], ['build:js']);
+});
+
+gulp.task('build:js', ['clean:js'], function() {
   var extensions = ['.js', '.json', '.es6', '.jsx'];
   return browserify({
       debug: true,
@@ -27,7 +29,7 @@ gulp.task('browserify:js', ['clean:js'], function() {
     .transform(babelify.configure({
       extensions: extensions
     }))
-    .require("./src/app.js", {
+    .require('./src/app.js', {
       entry: true
     })
     .bundle()
@@ -35,7 +37,6 @@ gulp.task('browserify:js', ['clean:js'], function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-/* Styles */
 gulp.task('less', ['clean:css'], function() {
     return gulp.src('./less/**/*.less')
       .pipe(less({
@@ -45,7 +46,6 @@ gulp.task('less', ['clean:css'], function() {
       .pipe(gulp.dest('dist/css'));
 });
 
-/* Clean up */
 gulp.task('clean:js', function() {
   return del(['dist/js/*', 'dist/js']);
 });
@@ -56,4 +56,4 @@ gulp.task('clean:css', function() {
 
 gulp.task('clean', ['clean:js', 'clean:css']);
 
-gulp.task('default', ['clean', 'browserify:js', 'less']);
+gulp.task('default', ['clean', 'build:js', 'less']);
