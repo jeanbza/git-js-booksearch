@@ -15,14 +15,11 @@ export function search(searchBarEvent) {
 
     return fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchBarData)
       .then(function(response) {
-        console.log('response success', response)
         return response.json()
       }).then(function(json) {
         dispatch({type: SEARCH_SUCCEEDED, searchResult: json})
-        console.log('parsing success')
       }).catch(function(ex) {
         dispatch({type: SEARCH_FAILED, searchError: ex})
-        console.log('parsing failed', ex)
       })
   }
 }
