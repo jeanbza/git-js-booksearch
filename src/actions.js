@@ -4,16 +4,17 @@ export const SEARCH_FAILED = 'SEARCH_FAILED'
 
 import 'whatwg-fetch'
 
+import dependencyInjector from './DependencyInjector'
+
 export function search(searchBarEvent) {
   const searchBarData = searchBarEvent.target.value
 
   return (dispatch) => {
     dispatch({
-      type: SEARCH_STARTED,
-      searchBarData: searchBarData
+      type: SEARCH_STARTED
     })
 
-    return fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchBarData)
+    dependencyInjector.fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchBarData)
       .then(function(response) {
         return response.json()
       }).then(function(json) {

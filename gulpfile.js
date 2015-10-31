@@ -3,6 +3,8 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var watch = require('gulp-watch');
+var notify = require('gulp-notify');
+
 var del = require('del');
 var path = require('path'); // TODO: Replace with simple path
 
@@ -14,7 +16,7 @@ var paths = {
   application_scripts: ['src/**/*.js']
 };
 
-gulp.task('watch', [], function() {
+gulp.task('watch', ['build:js'], function() {
   gulp.watch(['./src/*.js', './src/**/*.js'], ['build:js']);
 });
 
@@ -33,7 +35,8 @@ gulp.task('build:js', ['clean:js'], function() {
     })
     .bundle()
     .pipe(source('./app.js'))
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('dist/js'))
+    .pipe(notify("Javascript compiled"));
 });
 
 gulp.task('less', ['clean:css'], function() {
@@ -42,7 +45,8 @@ gulp.task('less', ['clean:css'], function() {
         paths: [ path.join(__dirname, 'node_modules', 'semantic-ui-less') ]
       }))
       .pipe(concat('app.css'))
-      .pipe(gulp.dest('dist/css'));
+      .pipe(gulp.dest('dist/css'))
+      .pipe(notify("less css compiled"));
 });
 
 gulp.task('clean:js', function() {
