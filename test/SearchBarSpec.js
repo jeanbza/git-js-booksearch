@@ -1,4 +1,4 @@
-import TestUtils from './react-addons-test-utils'
+import TestUtils from 'react-addons-test-utils'
 import SearchBar from './../src/components/SearchBar'
 
 import React from 'react' // TODO: Why is this required??
