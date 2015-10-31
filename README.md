@@ -1,5 +1,5 @@
 # git-js-booksearch
-Simple book searcher using React.js, Redux, Karma, and the google book API.
+Simple book searcher using React.js, Redux, Karma, and the google book API. See working product at http://booksearch.cfapps.io/.
 
 [![Build Status](https://travis-ci.org/jadekler/git-js-booksearch.svg?branch=master)](https://travis-ci.org/jadekler/git-js-booksearch)
 
