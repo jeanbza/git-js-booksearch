@@ -25,7 +25,10 @@ describe('reducers', () => {
     })
 
     it('should handle SEARCH_FAILED', () => {
-      expect(search({}, {type: SEARCH_FAILED})).toEqual({})
+      expect(search({}, {
+        type: SEARCH_FAILED,
+        searchError: 'some fake error - ignore me'
+      })).toEqual({})
     })
   })
 })
