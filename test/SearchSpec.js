@@ -1,5 +1,5 @@
-import search from '../src/reducers/search'
-import { SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED } from '../src/actions'
+import search from './../src/reducers/search'
+import { SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED } from './../src/actions'
 
 describe('reducers', () => {
   describe('search', () => {

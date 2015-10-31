@@ -1,14 +1,25 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import ReactDOM from 'react-dom'
 
-import configureStore from './configureStore'
+import { Provider, connect } from 'react-redux'
+import { bindActionCreators, combineReducers, applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk';
+
+import search from './reducers/search'
 import SearchArea from './components/SearchArea'
 import * as AllActions from './actions'
 
-const store = configureStore()
+const store = function configureStore(initialState) {
+  const createStoreWithMiddleware = applyMiddleware(
+    thunk
+  )(createStore)
+
+  const store = createStoreWithMiddleware(combineReducers({
+    search
+  }), initialState)
+
+  return store
+}()
 
 function mapStateToProps(state) {
   return {

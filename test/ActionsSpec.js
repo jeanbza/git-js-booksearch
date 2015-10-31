@@ -1,6 +1,6 @@
-import {SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED, search} from '../src/actions'
-import dependencyInjector from '../src/DependencyInjector'
-import FakeDispatcher from 'helpers/FakeDispatcher'
+import {SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED, search} from './../src/actions'
+import dependencyInjector from './../src/DependencyInjector'
+import FakeDispatcher from './helpers/FakeDispatcher'
 
 describe('actions', () => {
   describe('search', () => {
