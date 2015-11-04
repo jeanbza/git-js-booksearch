@@ -1,6 +1,6 @@
 import { SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED } from '../actions'
 
-export default function search(state = {}, action) {
+export default function search(state = [], action) {
   switch (action.type) {
   case SEARCH_STARTED:
     return state
@@ -8,9 +8,7 @@ export default function search(state = {}, action) {
     const books = action.searchResult.items.map(function(item) {
       return {
         title: item.volumeInfo.title,
-        subtitle: item.volumeInfo.subtitle,
-        description: item.volumeInfo.description,
-        buyLink: item.saleInfo.buyLink
+        subtitle: item.volumeInfo.subtitle
       }
     })
 

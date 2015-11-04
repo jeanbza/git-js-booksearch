@@ -3,7 +3,7 @@ import { SEARCH_STARTED, SEARCH_SUCCEEDED, SEARCH_FAILED } from './../src/action
 
 describe('reducers', () => {
   describe('search', () => {
-    it('should handle initial state', () => {
+    it('should set initial state', () => {
       expect(search(undefined, {})).toEqual({});
     })
 
@@ -12,13 +12,9 @@ describe('reducers', () => {
     })
 
     it('should handle SEARCH_SUCCEEDED', () => {
-      const fakeResult = {
-        items: []
-      }
-
       const searchSuccessResult = search({}, {
         type: SEARCH_SUCCEEDED,
-        searchResult: fakeResult
+        searchResult: {items: []}
       })
 
       expect(searchSuccessResult).toEqual([])

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom'
 
 import { Provider, connect } from 'react-redux'
 import { bindActionCreators, combineReducers, applyMiddleware, createStore } from 'redux'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 
 import search from './reducers/search'
 import SearchArea from './components/SearchArea'
@@ -23,7 +23,7 @@ const store = function configureStore(initialState) {
 
 function mapStateToProps(state) {
   return {
-    searchResults: Array.isArray(state.search) ? state.search : []
+    searchResults: state.search
   }
 }
 

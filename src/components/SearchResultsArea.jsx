@@ -13,7 +13,7 @@ export default class SearchResultsArea extends Component {
 
     return (
       <div>{books}</div>
-    );
+    )
   }
 }
 

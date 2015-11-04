@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
           <input type="text" name="search-bar" placeholder="Harry Potter" onChange={this.props.search} />
         </div>
       </form>
-    );
+    )
   }
 }
 
